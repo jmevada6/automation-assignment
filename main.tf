@@ -12,3 +12,9 @@ module "rgroup" {
   rg_location = "Australia East"
   tags        = var.common_tags
 }
+module "network" {
+  source      = "./modules/network"
+  rg_name     = module.rgroup.rg_name
+  rg_location = module.rgroup.rg_location
+  tags        = var.common_tags
+}
