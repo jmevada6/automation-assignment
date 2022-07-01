@@ -18,3 +18,10 @@ module "network" {
   rg_location = module.rgroup.rg_location
   tags        = var.common_tags
 }
+module "common" {
+  source         = "./modules/common"
+  rg_name        = module.rgroup.rg_name
+  rg_location    = module.rgroup.rg_location
+  tags           = var.common_tags
+  ssaccount_name = "n01522383ssname1"
+}
