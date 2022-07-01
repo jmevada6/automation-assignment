@@ -38,3 +38,16 @@ module "vmlinux" {
 
   storage_account_blob_endpoint = module.common.storage_account_blob_endpoint
 }
+module "vmwindows" {
+  source      = "./modules/vmwindows"
+  rg_name     = module.rgroup.rg_name
+  rg_location = module.rgroup.rg_location
+  tags        = var.common_tags
+  subnet1_id  = module.network.network_subnet_id
+
+  size       = "Standard_B1s"
+  adusername = "N01522383"
+  adpassword = "<P@$$w0rd>"
+
+  storage_account_blob_endpoint = module.common.storage_account_blob_endpoint
+}
