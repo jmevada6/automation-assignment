@@ -4,3 +4,7 @@ output "network_vnet_name" {
 output "network_subnet_name" {
   value = azurerm_subnet.ns1.name
 }
+output "network_subnet_id" {
+  value = azurerm_subnet.ns1.id
+}
+

@@ -7,3 +7,8 @@ output "common_vault_name" {
 output "common_storage_name" {
   value = azurerm_storage_account.ssaccount.name
 }
+
+
+output "storage_account_blob_endpoint" {
+  value = azurerm_storage_account.ssaccount.primary_blob_endpoint
+}
