@@ -14,3 +14,7 @@ output "dns_l" {
 output "vmlinuxids" {
   value = azurerm_linux_virtual_machine.vm1[*].id
 }
+
+output "vmlinuxnics" {
+  value = azurerm_network_interface.nic1[*].id
+}

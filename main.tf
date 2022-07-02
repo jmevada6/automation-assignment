@@ -17,6 +17,8 @@ module "network" {
   rg_name     = module.rgroup.rg_name
   rg_location = module.rgroup.rg_location
   tags        = var.common_tags
+
+  depends_on = [module.rgroup]
 }
 module "common" {
   source         = "./modules/common"
@@ -24,6 +26,8 @@ module "common" {
   rg_location    = module.rgroup.rg_location
   tags           = var.common_tags
   ssaccount_name = "n01522383ssname1"
+
+  depends_on = [module.rgroup]
 }
 module "vmlinux" {
   source      = "./modules/vmlinux"
@@ -37,6 +41,8 @@ module "vmlinux" {
   adpassword = "<P@$$w0rd>"
 
   storage_account_blob_endpoint = module.common.storage_account_blob_endpoint
+
+  depends_on = [module.network, module.common]
 }
 module "vmwindows" {
   source      = "./modules/vmwindows"
@@ -50,6 +56,7 @@ module "vmwindows" {
   adpassword = "<P@$$w0rd>"
 
   storage_account_blob_endpoint = module.common.storage_account_blob_endpoint
+  depends_on                    = [module.network, module.common]
 }
 
 module "datadisk" {
@@ -60,4 +67,19 @@ module "datadisk" {
 
   vmlinuxids   = module.vmlinux.vmlinuxids
   vmwindowsids = module.vmwindows.vmlinuxids
+
+  depends_on = [module.vmlinux, module.vmwindows]
 }
+
+module "loadbalancer" {
+  source      = "./modules/loadbalancer"
+  rg_name     = module.rgroup.rg_name
+  rg_location = module.rgroup.rg_location
+  tags        = var.common_tags
+  vmlinuxnics = module.vmlinux.vmlinuxnics
+  depends_on  = [module.vmlinux]
+}
+
+# module "database" {
+
+# }
