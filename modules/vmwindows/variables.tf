@@ -48,3 +48,10 @@ variable "os_image" {
     version   = "latest"
   }
 }
+variable "vmextension" {
+  default = {
+    publisher            = "Microsoft.Azure.Security.AntimalwareSignature"
+    type                 = "AntimalwareConfiguration"
+    type_handler_version = "2.58"
+  }
+}

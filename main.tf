@@ -51,3 +51,12 @@ module "vmwindows" {
 
   storage_account_blob_endpoint = module.common.storage_account_blob_endpoint
 }
+
+module "datadisk" {
+  source      = "./modules/datadisk"
+  rg_name     = module.rgroup.rg_name
+  rg_location = module.rgroup.rg_location
+  tags        = var.common_tags
+
+  vmlinuxids = module.vmlinux.vmlinuxids
+}
