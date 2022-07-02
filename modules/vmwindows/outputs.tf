@@ -10,3 +10,8 @@ output "privateip_w" {
 output "dns_w" {
   value = [azurerm_public_ip.pip2.fqdn]
 }
+
+
+output "vmlinuxids" {
+  value = azurerm_windows_virtual_machine.vm2.id
+}

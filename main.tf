@@ -58,5 +58,6 @@ module "datadisk" {
   rg_location = module.rgroup.rg_location
   tags        = var.common_tags
 
-  vmlinuxids = module.vmlinux.vmlinuxids
+  vmlinuxids   = module.vmlinux.vmlinuxids
+  vmwindowsids = module.vmwindows.vmlinuxids
 }

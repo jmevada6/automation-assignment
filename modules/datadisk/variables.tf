@@ -21,6 +21,9 @@ variable "dd_name_w" {
 variable "vmlinuxids" {
   type = list(string)
 }
+variable "vmwindowsids" {
+  type = string
+}
 
 variable "lun" {
   default = 0
