@@ -80,6 +80,10 @@ module "loadbalancer" {
   depends_on  = [module.vmlinux]
 }
 
-# module "database" {
+module "database" {
+  source      = "./modules/database"
+  rg_name     = module.rgroup.rg_name
+  rg_location = module.rgroup.rg_location
+  tags        = var.common_tags
 
-# }
+}
