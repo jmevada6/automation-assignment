@@ -24,3 +24,9 @@ resource "azurerm_storage_account" "ssaccount" {
   account_replication_type = var.ssaccount_replication
   tags                     = var.tags
 }
+
+resource "azurerm_storage_container" "storage_container" {
+  name                  = "tfstatefiles"
+  storage_account_name  = azurerm_storage_account.ssaccount.name
+  container_access_type = "private"
+}
