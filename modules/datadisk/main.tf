@@ -18,21 +18,21 @@ resource "azurerm_virtual_machine_data_disk_attachment" "linux_data_disk_attach"
   depends_on         = [azurerm_managed_disk.datadisk1_l]
 }
 
-resource "azurerm_managed_disk" "datadisk1_w" {
-  name                 = "${var.dd_name_l}-dd-windows"
-  location             = var.rg_location
-  resource_group_name  = var.rg_name
-  storage_account_type = "Standard_LRS"
-  create_option        = "Empty"
-  disk_size_gb         = "10"
-  tags                 = var.tags
-}
+# resource "azurerm_managed_disk" "datadisk1_w" {
+#   name                 = "${var.dd_name_l}-dd-windows"
+#   location             = var.rg_location
+#   resource_group_name  = var.rg_name
+#   storage_account_type = "Standard_LRS"
+#   create_option        = "Empty"
+#   disk_size_gb         = "10"
+#   tags                 = var.tags
+# }
 
-resource "azurerm_virtual_machine_data_disk_attachment" "windows_data_disk_attach" {
-  managed_disk_id    = azurerm_managed_disk.datadisk1_w.id
-  virtual_machine_id = var.vmwindowsids
-  lun                = var.lun
-  caching            = var.data_disk_caching
-  depends_on         = [azurerm_managed_disk.datadisk1_w]
-}
+# resource "azurerm_virtual_machine_data_disk_attachment" "windows_data_disk_attach" {
+#   managed_disk_id    = azurerm_managed_disk.datadisk1_w.id
+#   virtual_machine_id = var.vmwindowsids
+#   lun                = var.lun
+#   caching            = var.data_disk_caching
+#   depends_on         = [azurerm_managed_disk.datadisk1_w]
+# }
 

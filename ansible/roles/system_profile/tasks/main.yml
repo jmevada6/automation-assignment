@@ -1,0 +1,10 @@
+---
+- name: Q2 - Add two line in /etc/profile
+  blockinfile:
+    path: /etc/profile
+    insertafter: EOF
+    backup: yes
+    state: present
+    block: |
+      "#This is the test block added by ansible.... N01522383"
+      export TMOUT=1800

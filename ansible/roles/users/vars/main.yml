@@ -1,0 +1,8 @@
+group:
+  - name: cloudadmins
+    id: 3000
+user:
+  - name: user1000
+    id: 1001
+  - name: user2000
+    id: 2001

@@ -1,6 +1,6 @@
 variable "common_tags" {
   default = {
-    Project : "Automation Project - Assignment 1"
+    Project : "Automation Project - Assignment 2"
     Name : "Jay.Mevada"
     ExpirationDate : "2022-06-30"
     Environment : "Lab"
@@ -8,7 +8,7 @@ variable "common_tags" {
 }
 module "rgroup" {
   source      = "./modules/rgroup"
-  rg_name     = "2383-assignment1-RG"
+  rg_name     = "2383-assignment2-RG"
   rg_location = "Australia East"
   tags        = var.common_tags
 }
@@ -68,6 +68,7 @@ module "datadisk" {
   vmlinuxids   = module.vmlinux.vmlinuxids
   vmwindowsids = module.vmwindows.vmlinuxids
 
+  # depends_on = [module.vmlinux]
   depends_on = [module.vmlinux, module.vmwindows]
 }
 

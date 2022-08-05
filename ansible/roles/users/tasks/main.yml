@@ -1,0 +1,14 @@
+---
+- name: Q3.a - Create group
+  group:
+    name: cloudadmins
+    gid: 3000
+    state: present
+- name: Q3.b.c - Create users
+  user:
+    name: "{{ item.name }}"
+    uid: "{{ item.id }}"
+    state: present
+    groups: cloudadmins,wheel
+    generate_ssh_key: yes
+  loop: "{{ user }}"

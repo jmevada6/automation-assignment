@@ -72,11 +72,11 @@ resource "azurerm_windows_virtual_machine" "vm2" {
 }
 
 
-resource "azurerm_virtual_machine_extension" "vmx" {
-  name                 = "${var.vmname_w}-vmexe"
-  virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
-  publisher            = var.vmextension["publisher"]
-  type                 = var.vmextension["type"]
-  type_handler_version = var.vmextension["type_handler_version"]
-  tags                 = var.tags
-}
+# resource "azurerm_virtual_machine_extension" "vmx" {
+#   name                 = "${var.vmname_w}-vmexe"
+#   virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
+#   publisher            = var.vmextension["publisher"]
+#   type                 = var.vmextension["type"]
+#   type_handler_version = var.vmextension["type_handler_version"]
+#   tags                 = var.tags
+# }

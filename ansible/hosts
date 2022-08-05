@@ -1,0 +1,9 @@
+[linux]
+mylinux-dns-1
+mylinux-dns-2
+
+[linux:vars]
+ansible_user = N01522383
+ansible_password = "<P@$$w0rd>"
+host_domain=australiaeast.cloudapp.azure.com
+ansible_host="{{inventory_hostname}}.{{host_domain}}"

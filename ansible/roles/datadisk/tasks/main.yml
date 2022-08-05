@@ -1,0 +1,16 @@
+---
+- name: "{{ item.name }}"
+  parted:
+    device: /dev/sdc
+    number: "{{ item.number }}"
+    state: present
+    part_start: "{{ item.part_start}}"
+    part_end: "{{ item.part_end}}"
+  loop: "{{ listcreatepartition }}"
+- name: "{{ item.name }}"
+  mount:
+    path: "{{ item.path }}"
+    src: "{{ item.src }}"
+    state: mounted
+    fstype: "{{ item.fstype }}"
+  loop: "{{ listmountpartition }}"
