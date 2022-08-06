@@ -8,6 +8,11 @@
     part_end: "{{ item.part_end}}"
   loop: "{{ listcreatepartition }}"
 - name: "{{ item.name }}"
+  filesystem:
+    fstype: "{{ item.fstype }}"
+    dev: "{{ item.src }}"
+  loop: "{{ listmountpartition }}"
+- name: "{{ item.name }}"
   mount:
     path: "{{ item.path }}"
     src: "{{ item.src }}"

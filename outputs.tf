@@ -7,6 +7,7 @@ output "storage_account_blob_endpoint" { value = module.common.storage_account_b
 output "dbname" { value = module.database.dbname }
 
 output "lbname" { value = module.loadbalancer.lbname }
+output "lb_fqdn" { value = module.loadbalancer.lb_fqdn }
 
 output "network_vnet_name" { value = module.network.network_vnet_name }
 output "network_subnet_name" { value = module.network.network_subnet_name }

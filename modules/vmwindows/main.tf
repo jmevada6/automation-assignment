@@ -29,7 +29,6 @@ resource "azurerm_network_interface" "nic2" {
   }
 }
 
-
 resource "azurerm_windows_virtual_machine" "vm2" {
   name                = "${var.vmname_w}-vm"
   resource_group_name = var.rg_name

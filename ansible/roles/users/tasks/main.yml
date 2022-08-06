@@ -4,11 +4,17 @@
     name: cloudadmins
     gid: 3000
     state: present
-- name: Q3.b.c - Create users
+- name: Q3.b.c.d - Create users
   user:
     name: "{{ item.name }}"
     uid: "{{ item.id }}"
     state: present
     groups: cloudadmins,wheel
     generate_ssh_key: yes
+  loop: "{{ user }}"
+- name: Q3.e - Set authorized key taken from file
+  authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
   loop: "{{ user }}"

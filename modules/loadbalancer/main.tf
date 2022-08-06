@@ -3,6 +3,8 @@ resource "azurerm_public_ip" "pip3" {
   location            = var.rg_location
   resource_group_name = var.rg_name
   allocation_method   = "Static"
+  domain_name_label   = "frontlbdns"
+
 }
 
 resource "azurerm_lb" "frontlb" {
@@ -16,6 +18,15 @@ resource "azurerm_lb" "frontlb" {
   }
 }
 
+resource "azurerm_lb_rule" "frontlb_rule" {
+  loadbalancer_id                = azurerm_lb.frontlb.id
+  name                           = "LBRule"
+  protocol                       = "Tcp"
+  frontend_port                  = 80
+  backend_port                   = 80
+  frontend_ip_configuration_name = "PublicIP"
+  backend_address_pool_ids       = [azurerm_lb_backend_address_pool.lb_backendpool.id]
+}
 
 resource "azurerm_lb_backend_address_pool" "lb_backendpool" {
   loadbalancer_id = azurerm_lb.frontlb.id

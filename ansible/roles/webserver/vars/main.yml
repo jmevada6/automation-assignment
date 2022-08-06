@@ -1,0 +1,5 @@
+filesdata:
+  - path: ../files/vm1.html
+    hostname: mylinux-dns-1
+  - path: ../files/vm2.html
+    hostname: mylinux-dns-2

@@ -1,0 +1,5 @@
+---
+- name: start_apache_server
+  systemd:
+    name: httpd
+    state: started

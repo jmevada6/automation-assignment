@@ -1,18 +1,18 @@
 listcreatepartition:
   - number: 1
     name: Q1.a - create 4GB partition
-    part_start: 0GiB
-    part_end: 4GiB
+    part_start: 1%
+    part_end: 40%
   - number: 2
     name: Q1.b - create 5GB partition
-    part_start: 4GiB
-    part_end: 9GiB
+    part_start: 41%
+    part_end: 90%
 listmountpartition:
-  - path: /part1
+  - path: "/part1"
     name: Q1.a - mount 4GB to /part1
     src: /dev/sdc1
     fstype: xfs
-  - path: /part2
+  - path: "/part2"
     name: Q1.b - mount 5GB to /part2
     src: /dev/sdc2
     fstype: ext4

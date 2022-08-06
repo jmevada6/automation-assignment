@@ -1,10 +1,9 @@
 ---
-- name: Lab10 - S4 - Playbook for SM using roles
+- name: Assignment 2
   hosts: linux
   become: true
   roles:
-    # - datadisk
-    # - system_profile
+    - datadisk
+    - system_profile
     - users
-  # environment:
-  #   ANSIBLE_CONFIG: "/mnt/c/Users/12365/Downloads/Automation/Assignment/J/ansible/ansible.cfg"
+    - webserver
